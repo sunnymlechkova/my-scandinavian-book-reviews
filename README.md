@@ -17,40 +17,6 @@ beige;
         <h1>Book Reviews</h1>
         
     </header>
-<form id="reviewForm">
-    <label for="bookTitle">Book Title:</label><br>
-    <input type="text" id="bookTitle" name="bookTitle" required><br><br>
-
-    <label for="author">Author:</label><br>
-    <input type="text" id="author" name="author" required><br><br>
-
-    <label for="review">Review:</label><br>
-    <textarea id="review" name="review" rows="5" required></textarea><br><br>
-
-    <button type="submit">Submit Review</button>
-</form>
-<h2>Book Reviews</h2>
-<div id="reviewList" class="review-box">
-    <!-- Submitted reviews will be displayed here -->
-</div>
-
-<script>
-    function loadReviews() 
-        const reviews = JSON.parse(localStorage.getItem('reviews')) || [];
-        const reviewList = document.getElementById('reviewList');
-        const bookTitle = document.getElementById('bookTitle').value;
-        const author = document.getElementById('author').value;
-        const review = document.getElementById('review').value;
-
-        saveReview(bookTitle, author, review);
-
-        document.getElementById('reviewForm').reset();
-
-        loadReviews();
-
-    document.addEventListener('DOMContentLoaded', loadReviews);
-</script>
-
     <main>
         <section class="review-form">
             <h2>Submit Your Review</h2>
