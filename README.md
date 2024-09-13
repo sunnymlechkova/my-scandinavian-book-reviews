@@ -39,9 +39,6 @@ beige;
             <div id="reviewsContainer"></div>
         </section>
     </main>
-
-    <script src="scripts.js"></script>
-   
 </body>
 </html>
 
