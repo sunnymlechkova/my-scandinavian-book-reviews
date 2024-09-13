@@ -1,46 +1,40 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book Reviews</title>
-    <link rel="stylesheet" href="styles.css">
-<style>
-body {
-background-color:
-beige;
-}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Reviews</title>
 </head>
 <body>
-    <header>
-        <h1>Book Reviews</h1>
-        
-    </header>
-    <main>
-        <section class="review-form">
-            <h2>Submit Your Review</h2>
-            <form id="reviewForm">
-                <label for="bookTitle">Book Title:</label>
-                <input type="text" id="bookTitle" name="bookTitle" required><br><br>
+<h1>Submit Your Book Review</h1>
 
-                <label for="author">Author:</label>
-                <input type="text" id="author" name="author" required><br><br>
+```
+<form action="submit_review.php" method="POST">
+    <label for="bookTitle">Book Title:</label><br>
+    <input type="text" id="bookTitle" name="bookTitle" required><br><br>
 
-                <label for="review">Review:</label><br>
-                <textarea id="review" name="review" rows="5" required></textarea><br><br>
+    <label for="author">Author:</label><br>
+    <input type="text" id="author" name="author" required><br><br>
 
-                <button type="submit">Submit Review</button>
-            </form>
-        </section>
+    <label for="review">Review:</label><br>
+    <textarea id="review" name="review" rows="5" required></textarea><br><br>
 
-        <section class="reviews-list">
-            <h2>Recent Reviews</h2>
-            <div id="reviewsContainer"></div>
-        </section>
-    </main>
-</body>
-</html>
+    <button type="submit">Submit Review</button>
+</form>
+
+<h2>Book Reviews</h2>
+
+<?php
+$reviewsFile = 'reviews.txt';
+if (file_exists($reviewsFile)) {
+    $reviews = file($reviewsFile, FILE_IGNORE_NEW_LINES);
+    foreach ($reviews as $review) {
+        list($bookTitle, $author, $reviewText) = explode('|', $review);
+        echo "<div><strong>$bookTitle</strong> by $author <br> $reviewText</div><br>";
+    }
+} else {
+    echo "<p>No reviews yet.</p>";
+}
+?>
 
 
 
