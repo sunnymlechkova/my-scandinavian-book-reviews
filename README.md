@@ -20,21 +20,33 @@
 
     <button type="submit">Submit Review</button>
 </form>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-<h2>Book Reviews</h2>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyC53QVtV9fOVm7c1Qpg2xQPMj-KV_XXYB8",
+    authDomain: "scandinavian-book-reviews.firebaseapp.com",
+    projectId: "scandinavian-book-reviews",
+    storageBucket: "scandinavian-book-reviews.appspot.com",
+    messagingSenderId: "684346841102",
+    appId: "1:684346841102:web:723656b4093e4c5c1f045f",
+    measurementId: "G-SZ9QDERBRP"
+  };
 
-<?php
-$reviewsFile = 'reviews.txt';
-if (file_exists($reviewsFile)) {
-    $reviews = file($reviewsFile, FILE_IGNORE_NEW_LINES);
-    foreach ($reviews as $review) {
-        list($bookTitle, $author, $reviewText) = explode('|', $review);
-        echo "<div><strong>$bookTitle</strong> by $author <br> $reviewText</div><br>";
-    }
-} else {
-    echo "<p>No reviews yet.</p>";
-}
-?>
+  // Initialize Firebase
+console.log("test");
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+
+
 
 
 
